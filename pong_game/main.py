@@ -1,5 +1,6 @@
-# Day 22 - pong game using turtle
-# learning - oop, gui control, algorithm building
+# pong game using turtle
+# see: https://docs.python.org/3/library/turtle.html
+# see also: https://github.com/python/cpython/blob/3.14/Lib/turtle.py
 
 from turtle import Screen
 from wall import Wall, WALL_WIDTH, WALL_HEIGHT
@@ -105,5 +106,6 @@ while game_is_on:
     # game is voluntarily ended
     if scoreboard.end_game:
         game_is_on = False
+
 
 screen.exitonclick()
