@@ -1,5 +1,7 @@
-# Day 20, 21 - snake game using turtle
-# learning - oop, gui control, algorithm building, array slicing
+# Rebuilding the classic snake game in Nokia phones
+# Used the turtle graphics library in python for this project
+# See: https://docs.python.org/3.14/library/turtle.html#
+# See also: https://github.com/python/cpython/blob/3.14/Lib/turtle.py
 
 from turtle import Screen
 from time import sleep
@@ -48,7 +50,6 @@ screen.update()
 sleep(3)
 instructions.clear_instructions()
 game_is_on = True
-screen.update()
 while game_is_on:
     screen.update()
     sleep(time_delay)
@@ -58,16 +59,16 @@ while game_is_on:
         snake.grow()
         scoreboard.update_score()
         food.refresh()
+    # detect collision with tail
+    for segment in snake.segments[1:]:
+        if snake.head.distance(segment) < 10:
+            scoreboard.game_over()
+            game_is_on = False  # or just break
     # detect collision with wall or voluntary quitting
     if (snake.head.xcor() > WALL_EDGE or snake.head.xcor() < -WALL_EDGE
             or snake.head.ycor() > WALL_EDGE or snake.head.ycor() < -WALL_EDGE
             or scoreboard.end_game):
-        game_is_on = False
         scoreboard.game_over()
-    # detect collision with tail
-    for segment in snake.segments[1:]:
-        if snake.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.game_over()
+        game_is_on = False  # or just break
 
 screen.exitonclick()
