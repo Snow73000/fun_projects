@@ -1,6 +1,7 @@
-# pong game using turtle
-# see: https://docs.python.org/3/library/turtle.html
-# see also: https://github.com/python/cpython/blob/3.14/Lib/turtle.py
+# Rebuilding the classic pong game in mobile phones
+# Used the turtle graphics library in python for this project
+# See: https://docs.python.org/3.14/library/turtle.html#
+# See also: https://github.com/python/cpython/blob/3.14/Lib/turtle.py
 
 from turtle import Screen
 from wall import Wall, WALL_WIDTH, WALL_HEIGHT
@@ -109,3 +110,4 @@ while game_is_on:
 
 
 screen.exitonclick()
+
